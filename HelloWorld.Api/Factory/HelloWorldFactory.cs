@@ -18,17 +18,9 @@ namespace HelloWorld.Api.Factory
 
         public override IParadigm CreateHelloWorldGetter(string paradigm)
         {
-            try
-            {
-                var paradigmName = (ParadigmName)Enum.Parse(typeof(ParadigmName), paradigm, true);
-                return CreateHelloWorldGetter(paradigmName);
-            }
-            catch (ArgumentException exception)
-            {
-                throw new ArgumentException("The paradigmName argument specified is not valid.", exception);
-            }
+            var paradigmName = parseParadigmEnumerator(paradigm);
+            return CreateHelloWorldGetter(paradigmName);
         }
-
 
         public override IParadigm CreateHelloWorldGetter(ParadigmName? paradigm)
         {
@@ -49,5 +41,18 @@ namespace HelloWorld.Api.Factory
             }
         }
 
+        private static ParadigmName parseParadigmEnumerator(string paradigm)
+        {
+            try
+            {
+                var paradigmName = (ParadigmName)Enum.Parse(typeof(ParadigmName), paradigm, true);
+                return paradigmName;
+            }
+            catch (ArgumentException exception)
+            {
+                throw new ArgumentException("The paradigmName argument specified is not valid.", exception);
+            }
+
+        }
     }
 }
