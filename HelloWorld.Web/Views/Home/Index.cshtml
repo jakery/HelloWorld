@@ -1,0 +1,22 @@
+﻿@model HelloWorld.Web.Models.HomeViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script>
+        console.log("@Model.helloWorldMessage");
+    </script>
+</head>
+<body>
+    <div> 
+        @Model.helloWorldMessage
+    </div>
+</body>
+</html>
