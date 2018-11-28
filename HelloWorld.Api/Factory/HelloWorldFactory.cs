@@ -48,18 +48,6 @@ namespace HelloWorld.Api.Factory
                     throw new NotImplementedException("The selected ParadigmName is not yet supported.");
             }
         }
-        private ParadigmName getDefaultParadigm()
-        {
-            try
-            {
-                Enum.TryParse(settings.defaultParadigm, out ParadigmName paradigm);
-                return paradigm;
-            }
-            catch (ArgumentException exception)
-            {
-                throw new ArgumentException("The value specified in \"web.config :: configuration > appSettings > defaultParadigm\" is not valid.", exception);
-            }
-        }
 
     }
 }
